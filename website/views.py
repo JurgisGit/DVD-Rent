@@ -1,12 +1,11 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import Film
+from .models import Film, Director
 
 
 def index(request):
     template = loader.get_template('index.html')
-    films = Film.objects.all()
-    context = {'films': films}
+    context = {'films': Film.objects.all()}
     return HttpResponse(template.render(context, request))
 
 def login(request):
@@ -26,3 +25,7 @@ def signup(request):
         print(username, email, password, password2, request.method)
     return HttpResponse(template.render(context, request))
 
+def directors(request):
+    template = loader.get_template('directors.html')
+    context = {'directors': Director.objects.all()}
+    return HttpResponse(template.render(context, request))

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Directors</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date of birth</th>
+            <th scope="col">Nationality</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for director in directors %}
+    <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{director.name}}</td>
+        <td>{{director.birth}}</td>
+        <td>{{director.nationality}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
