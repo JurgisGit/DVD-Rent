@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Ratings</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Film</th>
+          <th scope="col">Year</th>
+          <th scope="col">Director</th>
+          <th scope="col">Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for rating in ratings %}
+    <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{rating.film}}</td>
+        <td>{{rating.year}}</td>
+        <td>{{rating.director}}</td>
+        <td>{{rating.rating}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

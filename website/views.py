@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.template import loader
-from .models import Film, Director
+from .models import Film, Director, Rating
 from django.contrib.auth.forms import User
 from django.contrib.auth import logout, authenticate, login
 
@@ -51,3 +51,9 @@ def directors(request):
 def logout_user(request):
     logout(request)
     return redirect('index')
+
+
+def ratings(request):
+    template = loader.get_template('ratings.html')
+    context = {'ratings': Rating.objects.all()}
+    return HttpResponse(template.render(context, request))
