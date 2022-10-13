@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Rented films</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Rented films</th>
+          <th scope="col">My Rating</th>
+          <th scope="col">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for rental in rentals %}
+    <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{rental.rented_films}}</td>
+        <td>{{rental.rating}}</td>
+        <td>{{rental.datetime}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -18,4 +18,12 @@ class Rating(models.Model):
     film = models.CharField('Film', max_length=250)
     year = models.IntegerField('Year')
     director = models.CharField('Director', max_length=250)
-    rating = models.IntegerField(default=5, help_text='value 1 to 10', validators=[MaxValueValidator(10), MinValueValidator(1)])
+    rating = models.IntegerField(default=5, help_text='value 1 to 10',
+                                 validators=[MaxValueValidator(10), MinValueValidator(1)])
+
+
+class Rentals(models.Model):
+    rented_films = models.CharField('Rented films', max_length=250)
+    rating = models.IntegerField(default=5, help_text='value 1 to 10',
+                                 validators=[MaxValueValidator(10), MinValueValidator(1)])
+    datetime = models.DateField()
