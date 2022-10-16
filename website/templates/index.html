@@ -11,6 +11,7 @@
       <th scope="col">#</th>
       <th scope="col">Film</th>
       <th scope="col">Director</th>
+      <th scope="col">Country</th>
       <th scope="col">Year</th>
     </tr>
   </thead>
@@ -20,7 +21,8 @@
     <tr>
       <th scope="row">{{ forloop.counter }}</th>
       <td>{{film.title}}</td>
-      <td>{{film.director}}</td>
+      <td>{{film.director.name}}</td>
+      <td>{{film.director.nationality}}</td>
       <td>{{film.year}}</td>
     </tr>
   {% endfor %}

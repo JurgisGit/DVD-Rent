@@ -4,7 +4,7 @@ from django.core.validators import *
 
 class Film(models.Model):
     title = models.CharField('Title', max_length=200)
-    director = models.CharField('Director', max_length=200)
+    director = models.ForeignKey('Director', on_delete=models.SET_NULL, null=True)
     year = models.IntegerField('Year')
 
 
@@ -23,7 +23,7 @@ class Rating(models.Model):
 
 
 class Rentals(models.Model):
-    rented_films = models.CharField('Rented films', max_length=250)
+    rented_film = models.CharField('Rented film', max_length=250)
     rating = models.IntegerField(default=5, help_text='value 1 to 10',
                                  validators=[MaxValueValidator(10), MinValueValidator(1)])
     datetime = models.DateField()
