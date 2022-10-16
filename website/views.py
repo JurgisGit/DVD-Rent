@@ -61,5 +61,5 @@ def ratings(request):
 
 def rentals(request):
     template = loader.get_template('rentals.html')
-    context = {'rentals': Rentals.objects.all}
+    context = {'rentals': Rentals.objects.all()}
     return HttpResponse(template.render(context, request))
