@@ -1,9 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.template import loader
-from .models import Film, Director, Rating, Rentals
+from .models import Film, Director, Rating, Rental
 from django.contrib.auth.forms import User
 from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -52,14 +53,15 @@ def logout_user(request):
     logout(request)
     return redirect('index')
 
-
+@login_required
 def ratings(request):
     template = loader.get_template('ratings.html')
     context = {'ratings': Rating.objects.all()}
     return HttpResponse(template.render(context, request))
 
 
+@login_required
 def rentals(request):
     template = loader.get_template('rentals.html')
-    context = {'rentals': Rentals.objects.all()}
+    context = {'rentals': Rental.objects.all()}
     return HttpResponse(template.render(context, request))

@@ -20,7 +20,7 @@ class Rating(models.Model):
                                  validators=[MaxValueValidator(10), MinValueValidator(1)])
 
 
-class Rentals(models.Model):
+class Rental(models.Model):
     rented_film = models.ForeignKey('Film', on_delete=models.SET_NULL, null=True)
     rating = models.IntegerField(default=5, help_text='value 1 to 10',
                                  validators=[MaxValueValidator(10), MinValueValidator(1)])
