@@ -1,5 +1,9 @@
 # DVD-Rent
 
+## Project Introduction. 
+Project is designed to provide film rental services. The main motivation behind the Project was to learn Migrations, Relationships, Django structure and Python development.
+
+
 ### Requirements: 
 * Python3
 ### Install Instructions:
