@@ -24,20 +24,21 @@
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h5> Current User: {{ user.get_username }}</h5>
+        <h5> Welcome {{ user.get_username }}</h5>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'index'%}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'directors'%}">Directors</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'logout'%}">Logout</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'ratings'%}">Ratings</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'rentals'%}">Rentals</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout'%}">Logout</a></li>
+
                 {% else %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'index'%}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'directors'%}">Directors</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'login'%}">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'signup'%}">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'directors'%}">Directors</a></li>
                 {% endif %}
             </ul>
         </div>
