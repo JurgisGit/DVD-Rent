@@ -53,6 +53,7 @@ def logout_user(request):
     logout(request)
     return redirect('index')
 
+
 @login_required
 def ratings(request):
     template = loader.get_template('ratings.html')
